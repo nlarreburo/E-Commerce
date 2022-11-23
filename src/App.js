@@ -3,7 +3,7 @@ import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
-    <ItemListContainer greeting={"Bienvenido"}/>
+    <ItemListContainer greeting={"Tienda online"}/>
   );
 }
 
