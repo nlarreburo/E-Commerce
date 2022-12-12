@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 export const NavBar = () => {
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-rose-900 z-50">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -20,18 +22,12 @@ export const NavBar = () => {
                 />
               </svg>
             </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a>Item 1</a>
-              </li>
+            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-rose-900 rounded-box w-52">
               <li tabIndex={0}>
                 <a className="justify-between">
-                  Parent
+                  Categorias
                   <svg
-                    className="fill-current"
+                    className="fil-currelnt"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
@@ -41,11 +37,14 @@ export const NavBar = () => {
                   </svg>
                 </a>
                 <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
+                  <li className="bg-rose-900">
+                    <Link to={'/category/hilos'}>Hilos</Link>
                   </li>
-                  <li>
-                    <a>Submenu 2</a>
+                  <li className="bg-rose-900">
+                    <Link to={'/category/botones'}>Botones</Link>
+                  </li>
+                  <li className="bg-rose-900">
+                    <Link to={'/category/otros'}>Otros</Link>
                   </li>
                 </ul>
               </li>
@@ -54,18 +53,15 @@ export const NavBar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
             Merceria Variedades
-          </a>
+          </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden z-50  lg:flex">
           <ul className="menu menu-horizontal p-0">
-            <li>
-              <a>Item 1</a>
-            </li>
             <li tabIndex={0}>
               <a>
-                Parent
+                Categorias
                 <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -76,12 +72,15 @@ export const NavBar = () => {
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
               </a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
+              <ul className="p-2 bg-rose-900">
+                <li className="bg-rose-900">
+                  <Link to={'/category/hilos'}>Hilos</Link>
                 </li>
-                <li>
-                  <a>Submenu 2</a>
+                <li className="bg-rose-900">
+                  <Link to={'/category/botones'}>Botones</Link>
+                </li>
+                <li className="bg-rose-900">
+                  <Link to={'/category/otros'}>Otros</Link>
                 </li>
               </ul>
             </li>
