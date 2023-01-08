@@ -20,6 +20,7 @@ export const ItemDetailContainer = () => {
     getProducts().then((response) => setItem(response));
   }, [id]);
 
+
   return (
     <>
       <div>

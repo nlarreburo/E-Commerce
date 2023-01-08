@@ -9,6 +9,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:rgb(230, 230, 230);
+}
+p{
+  color:black;
+}
+h2{
+  color: black;
+}
+
+a{
+  color:white;
 }
 
 code {
@@ -17,6 +28,19 @@ code {
 }
 
 li{
-  background-color: rgb(136 19 55 / var(--tw-bg-opacity));
+  color:white;
 }
 
+a:hover:active{
+  background-color: rgb(156, 45, 45);
+}
+
+.btn-primary{
+  color:white;
+  background-color: rgb(146, 41, 41);
+  border: 0.13rem solid black;
+}
+.btn-primary:hover{
+  background-color: rgb(180, 49, 49);
+  border: 0.13rem solid black;
+}

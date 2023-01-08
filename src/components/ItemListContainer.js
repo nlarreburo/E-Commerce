@@ -2,15 +2,27 @@ import {PRODUCTS} from '../data/prod'
 import React, { useEffect , useState}  from 'react'
 import ProductsCard from './ProductsCard'
 import { useParams } from 'react-router-dom'
+import PropagateLoader from "react-spinners/PropagateLoader";
+
+
 
 
 const ProductsList = () => {
     const { idCategory } = useParams();
-    console.log(idCategory)
+    const [loading, setLoading] = useState(false)
     const [productlist, setProductlist] = useState([])
 
+
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false) //aca cambiar a false
+        }, 1000);
+    }, [])
+    
+
     const getProducts = async() => await new Promise((resolve , reject) => { 
-        setTimeout(() => { resolve (PRODUCTS)}, 2000) 
+        setTimeout(() => { resolve (PRODUCTS)}, 1000) 
     })
 
     useEffect(()=>{
@@ -33,13 +45,26 @@ const ProductsList = () => {
     
 
     return (
-        <>
-            <div className='grid justify-items-center lg:grid-cols-3 gap-4  md:grid-cols-2 gap-2'>
-                {
-                    productlist.map((p) => <ProductsCard key={p.id} {...p}/>)
-                    }
-            </div>
-            
+        <>{
+            loading ?
+                <div className='flex items-center justify-center m-auto h-[65vh]'>
+                    <PropagateLoader
+                        color="#7e2d2d"
+                        loading={loading}
+                        size={15}
+                        aria-label="Propagate Loader"
+                        data-testid="loader"
+                    />
+                </div>
+            :
+                <div>
+                    <div className='min-h-[65vh] grid justify-items-center lg:grid-cols-3 gap-4 md:grid-cols-2 gap-2'>
+                        {
+                            productlist.map((item) => <ProductsCard key={item.id} {...item}/>)
+                            }
+                    </div>
+                </div>
+        }
         </>
     )
 }

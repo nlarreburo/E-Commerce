@@ -1,23 +1,23 @@
 import React, { useState } from 'react'
+import {Count} from './Count';
 
-export const ItemCount = ({initial, stock}) => {
-  const [count, setCount] = useState(initial)
-  
-  const increase = () =>{
-    setCount(count + 1)
+export const ItemCount = ({onAdd, onClick ,stock}) => {
+
+  const [counta, setCount] = useState(1)
+
+  const contador = (c) =>{
+      setCount(c)
   }
-
-  const decrease = () =>{
-      setCount(count - 1)
-  }
-
 
   return (
-    <div className=''>
-        <button disabled={ count <=1 } className='px-6 py-3 btn btn-square bg-white' onClick={decrease}> - </button>
-        <span className='m-4 px-4'>{count}</span>
-        <button disabled={count>=stock} className='px-6 py-3 btn btn-square bg-white' onClick={increase}> + </button>
+
+    <div className='md:flex flex-row items-center'>
+      <Count initial={1} contador={contador} stock={stock}/>
+      <div className='mx-2 my-5 mb:text-center'>
+          <button className='btn btn-primary' onClick={() => (onClick(), onAdd(counta))}>Agregar al carrito</button>
+      </div>
     </div>
+
   )
 }
 
